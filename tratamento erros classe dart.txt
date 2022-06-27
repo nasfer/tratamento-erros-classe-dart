@@ -1,0 +1,41 @@
+void main(){
+  
+  Login login = Login();
+  
+  try{
+    
+    login.logar();
+    
+  }on PasswordLengthError catch(e){
+    
+    print('falhou ao carregar');
+    
+  }catch(e){
+    
+    print('outro erro');
+  }finally{
+    print('finalizou');
+  }
+  
+ 
+  
+}
+
+class Login{
+  
+  void logar(){
+    
+    String user = 'admin';
+    String pass = '123';
+    
+    if (pass.length <= 6) throw PasswordLengthError();
+  }
+  
+}
+
+
+class PasswordLengthError implements Exception{
+  
+  PasswordLengthError();
+  
+}
